@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#080c18">
+  <meta name="description" content="Lumen Run — a neon survival flight through a living asteroid field.">
+  <title>Lumen Run</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-label="Lumen Run game">
+    <canvas id="game" aria-label="Game field"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>ጊት
+    <header class="hud hidden" id="hud">
+      <div class="brand"><span class="brand-mark">✦</span><span>LUMEN <b>RUN</b></span></div>
+      <div class="hud-center"><span class="eyebrow">SECTOR <b id="sector">01</b></span><span class="timer" id="timer">00:00</span></div>
+      <div class="hud-right"><div class="score-wrap"><span class="eyebrow">SCORE</span><strong id="score">0000</strong></div><div class="score-wrap"><span class="eyebrow">CELLS</span><strong id="cellsHUD">00 / 12</strong></div><button class="icon-button" id="pauseButton" aria-label="Pause game">Ⅱ</button></div>
+    </header>
+    <section class="overlay" id="menuScreen">
+      <div class="menu-card">
+        <div class="eyebrow kicker"><span class="live-dot"></span> DEEP SPACE COURIER · FLIGHT 07</div>
+        <h1>LUMEN<br><span>RUN</span></h1>
+        <p class="intro">The beacon is dying. The field is waking.<br>Bring the light home.</p>
+        <div class="mission"><span class="mission-icon">✧</span><div><b>YOUR MISSION</b><p>Gather <strong>12 light cells</strong> and survive until extraction.</p></div></div>
+        <button class="primary" id="startButton"><span>BEGIN FLIGHT</span><span class="arrow">↗</span></button>
+        <button class="text-button" id="settingsButton">FLIGHT SETTINGS <span>⚙</span></button>
+        <div class="best-line">PERSONAL BEST <span id="bestScore">0000</span></div>
+      </div>
+      <div class="side-note">MOVE <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> &nbsp;·&nbsp; DASH <kbd>SPACE</kbd></div>
+    </section>
+    <section class="overlay hidden" id="settingsScreen">
+      <div class="dialog">
+        <div class="eyebrow">FLIGHT CONFIGURATION</div><h2>Settings</h2>
+        <label class="setting-row"><span><b>Sound effects</b><small>Engine pulse and pickup tones</small></span><input type="checkbox" id="soundToggle"><i class="switch"></i></label>
+        <label class="setting-row"><span><b>Reduced motion</b><small>Calmer visual effects</small></span><input type="checkbox" id="motionToggle"><i class="switch"></i></label>
+        <button class="primary" id="settingsBack">SAVE & RETURN <span class="arrow">↗</span></button>
+      </div>
+    </section>
+    <section class="overlay hidden" id="pauseScreen">
+      <div class="dialog compact"><div class="eyebrow">FLIGHT PAUSED</div><h2>Catch your<br>breath.</h2><p class="intro">The field can wait a moment.</p><button class="primary" id="resumeButton">RESUME FLIGHT <span class="arrow">↗</span></button><button class="text-button" id="quitButton">RETURN TO HANGAR</button></div>
+    </section>
+    <section class="overlay hidden" id="endScreen">
+      <div class="dialog compact"><div class="eyebrow" id="endEyebrow">FLIGHT COMPLETE</div><h2 id="endTitle">Light<br>delivered.</h2><p class="intro" id="endText">The beacon burns bright again.</p><div class="result"><span>CELLS RECOVERED</span><b id="finalScore">0000</b></div><button class="primary" id="againButton">FLY AGAIN <span class="arrow">↗</span></button><button class="text-button" id="hangarButton">RETURN TO HANGAR</button></div>
+    </section>
+    <div class="touch-controls" id="touchControls"><div class="dpad"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div><button class="dash-touch" id="dashTouch">DASH</button></div>
+    <footer class="footer"><span>© 2089 LUMEN TRANSIT</span><span>KEEP THE LIGHT MOVING <i>✦</i></span><span>BUILD 1.0.0</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
